@@ -1,0 +1,76 @@
+{% extends 'admin_app/admin_home.html' %}
+{% block admin %}
+{% if request.session.status %}
+    <section class="section-welcome bg1-pattern p-t-120 p-b-105">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 p-t-45 p-b-30">
+					<div class="wrap-text-welcome t-center">
+						<span class="tit2 t-center">
+                            Country Name
+						</span>
+                        <h1>List of Country</h1>
+                        {% if country %}
+                        <table>
+                            <thead>
+                                <th>Country ID</th>
+                                <th>Country Name</th>
+                            </thead>
+                            {% for x in country %}
+                                <tr>
+                                    <td>{{ x.country_id }}</td>
+                                    <td>{{ x.country_name }}</td>
+
+                                </tr>
+                            {% endfor %}
+                        </table>
+                        {% else %}
+                            <h2>No data found</h2>
+                        {% endif %}
+
+						<p class="t-center m-b-22 size3 m-l-r-auto">
+							Donec quis lorem nulla. Nunc eu odio mi. Morbi nec lobortis est. Sed fringilla, nunc sed imperdiet lacinia, nisl ante egestas mi, ac facilisis ligula sem id neque.
+						</p>
+
+					</div>
+				</div>
+
+				<div class="col-md-6 p-b-30">
+					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
+            <form method="POST">
+                <h2 style="color: green">Add Country</h2>
+                {% csrf_token %}
+                {{ cf }}<br>
+                <center>
+                <input type="submit" value="Submit" class="btn btn-success">
+                <input type="reset" value="Clear" class="btn btn-danger"><br><br>
+                    {% for x in messages %}
+                        <h2>
+                        {{ x }}
+                        </h2>
+
+                    {% endfor %}
+                </center>
+            </form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+    {% else %}
+
+        <h3 style="text-align: center;font-family: 'Agency FB';font-size: 25px;color: red">
+            Please Do Login
+        </h3>
+
+    {% endif %}
+
+
+
+
+{% endblock %}

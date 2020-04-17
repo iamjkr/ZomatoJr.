@@ -1,8 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from admin_app.forms import AdminLoginForm
-from admin_app.models import AdminLogin
 from django.contrib import messages
+from admin_app.models import *
+from admin_app.forms import *
 
 # Create your views here.
 def adminLogin(request):
@@ -24,3 +25,15 @@ def adminLogin(request):
     else:
         lform = AdminLoginForm()
         return render(request, 'admin_app/login.html', {'lform':lform} )
+
+
+def countryData(request):
+    if request.method == 'POST':
+        cf = CountryForm(request.POST)
+        if cf.is_valid():
+            cf.save()
+            messages.success(request, 'country successfully saved!! ')
+            return redirect('country_data')
+        return None
+    else:
+        return render(request, 'admin_app/country.html', context={'country': Country.objects.all(), "cf": CountryForm})

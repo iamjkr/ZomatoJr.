@@ -10,35 +10,31 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
-<body>
+<body style="background-image: url(/static/images/slide1-02.jpg);>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 mt-5">
-            <br>
-            <img style="{
-            width:150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-left: auto;
-            margin-right: auto;}" src="{% static 'images/4.png' %}">
         </div>
 
-        <div class="col-md-3 mt-5">
+        <div class="col-md-4 mt-5">
             <form method="POST">
-                <h2>Please Login</h2>
+                <h2 style="color: green">Please Login to access Admin</h2>
                 {% csrf_token %}
                 {{ lform }}<br>
                 <center>
                 <input type="submit" value="Login" class="btn btn-success">
-                <input type="reset" value="Clear" class="btn btn-danger"><br>
-                    <a href="#">Register Now</a>
+                <input type="reset" value="Clear" class="btn btn-danger"><br><br>
+                    <a href="#">Forgot Password</a>
                 </center>
             </form>
         </div>
     </div>
 </div>
 {% for x in messages %}
-    <h3 style="text-align: center">{{ x }}</h3>
+    <h3 style="text-align: center; color: red">{{ x }}</h3>
 {% endfor %}
+
+
 </body>
 </html>

@@ -34,7 +34,9 @@
 				<div class="wrap_header trans-0-3">
 					<!-- Logo -->
 					<div class="logo">
-
+						<a href="#">
+							<img src="{% static 'images/icons/main_logo.png' %}" alt="IMG-LOGO" data-logofixed= "{% static 'images/icons/m_logo2.png' %}">
+						</a>
 					</div>
 
 					<!-- Menu -->
@@ -47,10 +49,6 @@
 
 								<li>
 									<a href="#">Menu</a>
-								</li>
-
-								<li>
-									<a href="#">Reservation</a>
 								</li>
 
 								<li>
@@ -67,6 +65,10 @@
 
 								<li>
 									<a href="#">Contact</a>
+								</li>
+
+                                <li>
+									<a href="{% url 'admin_login' %}">Admin</a>
 								</li>
 							</ul>
 						</nav>
