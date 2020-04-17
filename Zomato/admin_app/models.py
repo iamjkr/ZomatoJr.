@@ -27,6 +27,7 @@ class State(models.Model):
 class City(models.Model):
     city_id = models.AutoField(primary_key=True)
     state = models.ForeignKey(State, on_delete=models.CASCADE)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, default=None)
     city_name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -36,6 +37,8 @@ class City(models.Model):
 class Region(models.Model):
     region_id = models.AutoField(primary_key=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
+    state = models.ForeignKey(State, on_delete=models.CASCADE, default=None)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, default=None)
     region_name = models.CharField(max_length=50)
 
     def __str__(self):

@@ -7,18 +7,24 @@
 				<div class="col-md-6 p-t-45 p-b-30">
 					<div class="wrap-text-welcome t-center">
 						<span class="tit2 t-center">
-                            Country Name
+                            Region(Area) Name
 						</span>
-                        {% if country %}
+                        {% if region %}
                         <table border="1">
                             <tr>
-                                <th width="150">Id No of Country</th>
-                                <th width="250">Name of Country</th>
+                                <td width="150"> No</td>
+                                <td width="250">Region</td>
+                                <td width="250">City</td>
+                                <td width="250">State</td>
+                                <td width="250">Country</td>
                             </tr>
-                            {% for x in country %}
+                            {% for x in region %}
                                 <tr>
-                                    <td>{{ x.country_id }}</td>
-                                    <td>{{ x.country_name }}</td>
+                                    <td>{{ x.region_id }}</td>
+                                    <td>{{ x.region_name }}</td>
+                                    <td>{{ x.city.city_name }}</td>
+                                    <td>{{ x.state.state_name }}</td>
+                                    <td>{{ x.country.country_name }}</td>
 
                                 </tr>
                             {% endfor %}
@@ -37,9 +43,9 @@
 				<div class="col-md-6 p-b-30">
 					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
             <form method="POST">
-                <h2 style="color: green; font-family:'Apple Chancery'">Add Country Here</h2>
+                <h2 style="color: green; font-family:'Apple Chancery'">Add Region Here</h2>
                 {% csrf_token %}
-                {{ cf }}<br>
+                {{ rf }}<br>
                 <center>
                 <input type="submit" value="Submit" class="btn btn-success">
                 <input type="reset" value="Clear" class="btn btn-danger"><br><br>

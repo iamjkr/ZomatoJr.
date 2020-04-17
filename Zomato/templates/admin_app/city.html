@@ -9,16 +9,20 @@
 						<span class="tit2 t-center">
                             Country Name
 						</span>
-                        {% if country %}
+                        {% if city %}
                         <table border="1">
                             <tr>
-                                <th width="150">Id No of Country</th>
-                                <th width="250">Name of Country</th>
+                                <td width="150"> No</td>
+                                <td width="250">City</td>
+                                <td width="250">State</td>
+                                <td width="250">Country</td>
                             </tr>
-                            {% for x in country %}
+                            {% for x in city %}
                                 <tr>
-                                    <td>{{ x.country_id }}</td>
-                                    <td>{{ x.country_name }}</td>
+                                    <td>{{ x.region_id }}</td>
+                                    <td>{{ x.city_name }}</td>
+                                    <td>{{ x.state.state_name }}</td>
+                                    <td>{{ x.country.country_name }}</td>
 
                                 </tr>
                             {% endfor %}
@@ -37,7 +41,7 @@
 				<div class="col-md-6 p-b-30">
 					<div class="wrap-pic-welcome size2 bo-rad-10 hov-img-zoom m-l-r-auto">
             <form method="POST">
-                <h2 style="color: green; font-family:'Apple Chancery'">Add Country Here</h2>
+                <h2 style="color: green; font-family:'Apple Chancery'">Add City Here</h2>
                 {% csrf_token %}
                 {{ cf }}<br>
                 <center>

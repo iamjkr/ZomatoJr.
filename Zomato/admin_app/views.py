@@ -37,3 +37,51 @@ def countryData(request):
         return None
     else:
         return render(request, 'admin_app/country.html', context={'country': Country.objects.all(), "cf": CountryForm})
+
+
+def stateData(request):
+    if request.method == 'POST':
+        sf = StateForm(request.POST)
+        if sf.is_valid():
+            sf.save()
+            messages.success(request, 'successfully saved!! ')
+            return redirect('state')
+        return None
+    else:
+        return render(request, 'admin_app/state.html', context={'state': State.objects.all(), "sf": StateForm})
+
+
+def cityData(request):
+    if request.method == 'POST':
+        cf = CityForm(request.POST)
+        if cf.is_valid():
+            cf.save()
+            messages.success(request, 'successfully saved!! ')
+            return redirect('city')
+        return None
+    else:
+        return render(request, 'admin_app/city.html', context={'city': City.objects.all(), "cf": CityForm})
+
+
+def regionData(request):
+    if request.method == 'POST':
+        rf = RegionForm(request.POST)
+        if rf.is_valid():
+            rf.save()
+            messages.success(request, 'successfully saved!! ')
+            return redirect('region')
+        return None
+    else:
+        return render(request, 'admin_app/region.html', context={'region': Region.objects.all(), "rf": RegionForm})
+
+
+def restoData(request):
+    if request.method == 'POST':
+        rtf = RestoCategoryForm(request.POST)
+        if rtf.is_valid():
+            rtf.save()
+            messages.success(request, 'successfully saved!! ')
+            return redirect('resto')
+        return None
+    else:
+        return render(request, 'admin_app/resto.html', context={'resto': RestaurantCategory.objects.all(), "rtf": RestoCategoryForm})

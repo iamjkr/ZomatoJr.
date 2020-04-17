@@ -7,18 +7,18 @@
 				<div class="col-md-6 p-t-45 p-b-30">
 					<div class="wrap-text-welcome t-center">
 						<span class="tit2 t-center">
-                            Country Name
+                            Restaurant Types
 						</span>
-                        {% if country %}
+                        {% if resto %}
                         <table border="1">
                             <tr>
-                                <th width="150">Id No of Country</th>
-                                <th width="250">Name of Country</th>
+                                <th width="150"> No</th>
+                                <th width="250">Resto Type</th>
                             </tr>
-                            {% for x in country %}
+                            {% for x in resto %}
                                 <tr>
-                                    <td>{{ x.country_id }}</td>
-                                    <td>{{ x.country_name }}</td>
+                                    <td>{{ x.resto_id }}</td>
+                                    <td>{{ x.resto_type }}</td>
 
                                 </tr>
                             {% endfor %}
@@ -39,7 +39,7 @@
             <form method="POST">
                 <h2 style="color: green; font-family:'Apple Chancery'">Add Country Here</h2>
                 {% csrf_token %}
-                {{ cf }}<br>
+                {{ rtf}}<br>
                 <center>
                 <input type="submit" value="Submit" class="btn btn-success">
                 <input type="reset" value="Clear" class="btn btn-danger"><br><br>

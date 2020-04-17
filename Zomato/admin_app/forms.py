@@ -24,6 +24,13 @@ class AdminLoginForm(forms.Form):
 
 
 class CountryForm(forms.ModelForm):
+    country_name = forms.CharField(label='Country Name',
+                                   widget=forms.TextInput(
+                                       attrs={
+                                           "placeholder": "e.g : United Kingdom"
+                                       }
+                                   )
+                                   )
     class Meta:
         model = Country
         fields = ('country_name',)
@@ -39,8 +46,8 @@ class StateForm(forms.ModelForm):
 class CityForm(forms.ModelForm):
     class Meta:
         model = City
-        fields ='__all__'
-        exclude =('city_id',)
+        fields = '__all__'
+        exclude = ('city_id',)
 
 
 class RegionForm(forms.ModelForm):
