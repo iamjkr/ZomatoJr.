@@ -1,4 +1,5 @@
 from django import forms
+from admin_app.models import *
 
 
 class AdminLoginForm(forms.Form):
@@ -20,3 +21,37 @@ class AdminLoginForm(forms.Form):
             }
         )
     )
+
+
+class CountryForm(forms.ModelForm):
+    class Meta:
+        model = Country
+        fields = ('country_name',)
+
+
+class StateForm(forms.ModelForm):
+    class Meta:
+        model = State
+        fields = '__all__'
+        exclude = ('state_id',)
+
+
+class CityForm(forms.ModelForm):
+    class Meta:
+        model = City
+        fields ='__all__'
+        exclude =('city_id',)
+
+
+class RegionForm(forms.ModelForm):
+    class Meta:
+        model = Region
+        fields = '__all__'
+        exclude = ('region_id',)
+
+
+class RestoCategoryForm(forms.ModelForm):
+    class Meta:
+        model = RestaurantCategory
+        fields = '__all__'
+        exclude = ('resto_id',)
